@@ -1,0 +1,56 @@
+version: "3"
+services:
+  nginx:
+    image: nginx
+    container_name: nginx
+    restart: always
+    depends_on:
+      - php
+    links:
+      - php
+    ports:
+      - "8080:80"
+    networks:
+      - internal
+    volumes:
+      - ./:/www/
+  mariadb:
+    image: mariadb
+    container_name: mariadb
+    restart: always
+    networks:
+      - internal
+    env_file:
+      - web.env
+  php:
+    image: php
+    container_name: php
+    restart: always
+    env_file:
+      - web.env
+    depends_on:
+      - mariadb
+    links:
+      - mariadb
+    networks:
+      - internal
+    volumes:
+      - ./:/www/
+  install:
+    image: php
+    container_name: install
+    restart: "no"
+    env_file:
+      - web.env
+    depends_on:
+      - php
+    links:
+      - mariadb
+    networks:
+      - internal
+    volumes:
+      - ./:/www/
+    command: ["/usr/local/php/bin/php", "/www/server/bin/install.php"]
+networks:
+  internal:
+    driver: bridge

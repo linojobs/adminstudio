@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "leadfarmer",
+  "version": "1.0",
+  "description": "leadfarmer",
+  "icons": {
+    "16": "images/icon-16.png",
+    "32": "images/icon-32.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "permissions": ["activeTab", "scripting", "alarms"],
+  "content_scripts": [
+    {
+      "js": ["content.js"],
+      "matches": ["https://www.amazon.com/*"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
