@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@adminstudio/components": "workspace:^1.0.0",
+    "@adminstudio/store": "workspace:^1.0.0"
+  }
+}

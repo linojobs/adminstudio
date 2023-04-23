@@ -7,9 +7,7 @@ function main() {
   const cats = document.querySelectorAll(
     "#wayfinding-breadcrumbs_feature_div a"
   );
-  const price = document.querySelector(
-    "[data-role='data-a-color']>.a-offscreen"
-  );
+  const priceEle = document.querySelector("[data-a-color=price]>.a-offscreen");
   if (!amznSSTextarea) {
     window.requestIdleCallback(main);
     return;
@@ -49,7 +47,7 @@ function main() {
     const spec = new URL(link);
     const linkId = spec.searchParams.get("linkId");
     const title = productTitle.innerText;
-    const price = price.innerText;
+    const price = priceEle.innerText;
     const fd = new URLSearchParams();
     fd.append("APP", "ChromeExt");
     fd.append("CONTROLLER", "AddItem");

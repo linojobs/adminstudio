@@ -15,16 +15,13 @@ services:
       - "8080:80"
     env_file:
       - sys.env
+  store:
+    build: ./packages/admin-store
+    container_name: store
     networks:
       - internal
     volumes:
-      - ./:/www/
-  mariadb:
-    image: mariadb
-    container_name: mariadb
-    restart: always
-    networks:
-      - internal
+      - ./:/admin-studio/
     env_file:
       - sys.env
   nodejs:
@@ -57,6 +54,33 @@ services:
     volumes:
       - ./installer/:/installer/
     command: [ "/usr/local/php/bin/php", "/installer/install.php" ]
+  ui:
+    build: ./packages/admin-ui
+    container_name: ui
+    networks:
+      - internal
+    volumes:
+      - ./:/admin-studio/
+    env_file:
+      - ./web.env
+  ide:
+    build: ./packages/admin-ide
+    container_name: ide
+    networks:
+      - internal
+    volumes:
+      - ./:/admin-studio/
+    env_file:
+      - ./web.env
+  server:
+    build: ./packages/admin-server
+    container_name: server
+    networks:
+      - internal
+    volumes:
+      - ./:/admin-studio/
+    env_file:
+      - ./web.env
 networks:
   internal:
     driver: bridge
