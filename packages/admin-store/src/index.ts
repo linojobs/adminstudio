@@ -1,2 +1,2 @@
-export { default as store, OSContext } from "./store";
+export { default as store, OSContext, Provider, connect } from "./store";
 export * from "./boot";

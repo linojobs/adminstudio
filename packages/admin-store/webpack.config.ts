@@ -8,6 +8,7 @@ export default function (
     return {
         name: "store",
         target: "web",
+        mode: "production",
         dependencies: dependencies,
         entry: {
             store: path.resolve(__dirname, "./src/index.ts")

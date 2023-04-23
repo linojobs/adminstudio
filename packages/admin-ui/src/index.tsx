@@ -1,6 +1,5 @@
 import React from "react";
-import { Provider } from "react-redux";
-import { store, OSContext } from "@adminstudio/store";
+import { Provider, store, OSContext } from "@adminstudio/store";
 import Biz from "./biz";
 
 import "./style/index.less";

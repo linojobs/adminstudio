@@ -2,6 +2,7 @@ import path from "node:path";
 import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import CopyPlugin from "copy-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 export default function (outputPath: string, dependencies: webpack.Configuration["dependencies"]): webpack.Configuration {
     return {
@@ -10,7 +11,6 @@ export default function (outputPath: string, dependencies: webpack.Configuration
         target: "web",
         entry: path.resolve(__dirname, "./src/index.tsx"),
         output: {
-            clean: true,
             filename: "entry.[fullhash].js",
             path: outputPath,
             libraryTarget: "umd"
@@ -18,7 +18,8 @@ export default function (outputPath: string, dependencies: webpack.Configuration
         module: {
             rules: [
                 {
-
+                    test: /\.less$/,
+                    use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader"]
                 },
                 {
                     test: /\.tsx?$/,
@@ -55,6 +56,7 @@ export default function (outputPath: string, dependencies: webpack.Configuration
                     }
                 ]
             }),
+            new MiniCssExtractPlugin(),
             new HtmlWebpackPlugin({
                 template: path.resolve(__dirname, "./src/index.html")
             })

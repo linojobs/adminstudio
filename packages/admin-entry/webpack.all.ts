@@ -9,6 +9,6 @@ const publicDir = path.resolve(__dirname, "../../public");
 let WebpackConfig: Configuration[] = [];
 
 export default WebpackConfig.concat(
-    EntryWebpack(publicDir, ["store"]),
     StoreWebpack(publicDir, []),
+    EntryWebpack(publicDir, ["store"])
 );

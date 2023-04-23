@@ -1,6 +1,5 @@
-import { connect } from "react-redux";
 import { Dispatch } from "redux";
-import { bootStart, bootEnd, setMenus } from "@adminstudio/store";
+import { connect, bootStart, bootEnd, setMenus } from "@adminstudio/store";
 import Boot from "./Boot";
 import { getMenus } from "./api";
 
