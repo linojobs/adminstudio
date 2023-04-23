@@ -1,7 +1,16 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
-import App from "./App";
+import { Provider } from "react-redux";
+import { store, OSContext } from "@adminstudio/store";
+import Biz from "./biz";
+
 import "./style/index.less";
 
-const root = createRoot(document.getElementById("app") as HTMLDivElement);
-root.render(<App />);
+const App: React.FC = () => {
+    return (
+        <Provider context={OSContext} store={store}>
+            <Biz />
+        </Provider>
+    );
+};
+
+export default App;

@@ -1,7 +1,7 @@
 FROM node
 
-WORKDIR /admin-studio/packages/admin-server/
+EXPOSE 3000
 
-RUN npm install ts-node -g
+WORKDIR /admin-studio/packages/admin-server
 
-CMD [ "ts-node","index.ts" ]
+CMD [ "npx", "ts-node", "index.ts" ]

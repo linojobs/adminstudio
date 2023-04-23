@@ -1,25 +1,25 @@
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import { Dispatch } from "redux";
-import { bootStart, bootEnd, setMenus } from "../../sys/redux/reducers/boot";
+import { bootStart, bootEnd, setMenus } from "@adminstudio/store";
 import Boot from "./Boot";
 import { getMenus } from "./api";
 
-function mapStateToProps(state:AppState){
+function mapStateToProps(state: AppState) {
     return {
-        status:state.boot.status
+        status: state.boot.status
     };
 }
 
-function mapDispatchToProps(dispatch:Dispatch){
+function mapDispatchToProps(dispatch: Dispatch) {
     return {
-        async onBoot(){
-            dispatch(bootStart());
+        async onBoot() {
+            bootStart();
             //await delay(3000);
             const menus = await getMenus();
-            dispatch(setMenus(menus));
-            dispatch(bootEnd());
+            setMenus(menus);
+            bootEnd();
         }
     };
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Boot);
+export default connect(mapStateToProps, mapDispatchToProps)(Boot);

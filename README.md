@@ -15,6 +15,8 @@
 - Design Pattern
 - Docker
 - Docker Compose
+- Nginx
+- PHP
 
 ## Devlopment
 

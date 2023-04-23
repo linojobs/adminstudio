@@ -1,9 +1,9 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 // initial state
-const initialState:BootState = {
-    status:"idle",
-    menus:[]
+const initialState: BootState = {
+    status: "idle",
+    menus: []
 };
 
 // create slice
@@ -11,21 +11,21 @@ const slice = createSlice({
     name: "usr",
     initialState,
     reducers: {
-        bootStart(state:BootState){
+        bootStart(state: BootState) {
             state.status = "booting";
         },
-        bootEnd(state:BootState){
+        bootEnd(state: BootState) {
             state.status = "end";
         },
-        bootFailed(state:BootState){
+        bootFailed(state: BootState) {
             state.status = "failed";
         },
-        setMenus(state:BootState,{payload}){
+        setMenus(state: BootState, { payload }) {
             state.menus = payload;
         }
     }
 });
 
 // export sync action
-export const {bootStart,bootEnd,bootFailed,setMenus} = slice.actions; 
+export const { actions } = slice;
 export default slice.reducer;

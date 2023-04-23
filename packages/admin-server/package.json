@@ -1,33 +1,23 @@
 {
   "name": "@adminstudio/server",
   "version": "1.0.0",
-  "description": "The foundtion of adminstudio",
-  "exports": {
-    "./lib": "./src/lib"
+  "description": "web seerver",
+  "main": "index.ts",
+  "directories": {
+    "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/linojobs/adminstudio.git"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/linojobs/adminstudio/issues"
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "ts-node": "^10.9.1"
   },
-  "homepage": "https://github.com/linojobs/adminstudio#readme",
   "devDependencies": {
     "@types/express": "^4.17.17",
-    "@typescript-eslint/eslint-plugin": "^5.57.0",
-    "@typescript-eslint/parser": "^5.57.0",
-    "css-loader": "^6.7.3",
-    "eslint": "^8.37.0",
-    "eslint-plugin-react": "^7.32.2",
-    "typescript": "^5.0.3"
-  },
-  "dependencies": {
-    "express": "^4.18.2"
+    "@types/mysql": "^2.15.21"
   }
 }

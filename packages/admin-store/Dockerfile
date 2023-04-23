@@ -2,6 +2,4 @@ FROM node
 
 WORKDIR /admin-studio/packages/admin-store/
 
-RUN npm install pnpm -g
-
-CMD [ "pnpm","run","start" ]
+CMD [ "npx","webpack","--config","webpack.all.ts","--mode","development","--watch" ]

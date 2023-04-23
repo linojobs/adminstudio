@@ -1,12 +1,14 @@
 {
-  "name": "@adminstudio/ui",
+  "name": "@adminstudio/entry",
   "version": "1.0.0",
   "description": "The foundtion of adminstudio",
-  "main": "src/index.tsx",
+  "exports": {
+    "./lib": "./src/lib"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --config webpack.dev.ts --mode development --watch",
-    "build": "webpack --config webpack.dev.ts --mode production"
+    "dev": "webpack --config webpack.all.ts --mode development --watch",
+    "build": "webpack --config webpack.all.ts --mode production"
   },
   "repository": {
     "type": "git",
