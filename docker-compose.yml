@@ -1,15 +1,20 @@
 version: "3"
 services:
   nginx:
-    image: nginx
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
     container_name: nginx
     restart: always
     depends_on:
-      - php
+      - install
+      - nodejs
     links:
-      - php
+      - nodejs
     ports:
       - "8080:80"
+    env_file:
+      - sys.env
     networks:
       - internal
     volumes:
@@ -21,36 +26,37 @@ services:
     networks:
       - internal
     env_file:
-      - web.env
-  php:
-    image: php
-    container_name: php
+      - sys.env
+  nodejs:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: nodejs
     restart: always
     env_file:
-      - web.env
+      - sys.env
     depends_on:
       - mariadb
+      - install
     links:
       - mariadb
     networks:
       - internal
     volumes:
-      - ./:/www/
+      - ./server/:/server/
   install:
-    image: php
+    image: linojobs/php
     container_name: install
     restart: "no"
     env_file:
-      - web.env
+      - sys.env
     depends_on:
-      - php
-    links:
       - mariadb
     networks:
       - internal
     volumes:
-      - ./:/www/
-    command: ["/usr/local/php/bin/php", "/www/server/bin/install.php"]
+      - ./installer/:/installer/
+    command: [ "/usr/local/php/bin/php", "/installer/install.php" ]
 networks:
   internal:
     driver: bridge
