@@ -1,5 +1,5 @@
 import React from "react";
-import {connect} from "react-redux";
+import {connect} from "@adminstudio/store";
 import { Dispatch } from "redux";
 import {TreeView} from "@adminstudio/components";
 

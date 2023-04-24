@@ -1,24 +1,23 @@
-import { Dispatch } from "redux";
-import { connect, bootStart, bootEnd, setMenus } from "@adminstudio/store";
+import { useSelector,useBootStart, useBootEnd, useSetMenus } from "@adminstudio/store";
 import Boot from "./Boot";
 import { getMenus } from "./api";
+import React,{ useCallback } from "react";
 
-function mapStateToProps(state: AppState) {
-    return {
-        status: state.boot.status
-    };
-}
+const App:React.FC = ()=>{
+    const status = useSelector((state:any)=>state.boot.status);
+    const bootStart = useBootStart();
+    const setMenus = useSetMenus();
+    const bootEnd = useBootEnd();
 
-function mapDispatchToProps(dispatch: Dispatch) {
-    return {
-        async onBoot() {
-            bootStart();
-            //await delay(3000);
-            const menus = await getMenus();
-            setMenus(menus);
-            bootEnd();
-        }
-    };
-}
+    const onBoot = useCallback(async ()=>{
+        bootStart();
+        //await delay(3000);
+        const menus = await getMenus();
+        setMenus(menus);
+        bootEnd();
+    },[]);
 
-export default connect(mapStateToProps, mapDispatchToProps)(Boot);
+    return <Boot status={status} onBoot={onBoot} />;
+};
+
+export default App;

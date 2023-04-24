@@ -1,22 +1,22 @@
-import { useDispatch } from "./store";
+import { useDispatch } from "./redux";
 import { actions } from "./reducers/boot";
 
-export function bootStart() {
+export function useBootStart() {
     const dispatch = useDispatch();
-    dispatch(actions.bootStart());
+    return ()=>dispatch(actions.bootStart());
 }
 
-export function bootEnd() {
+export function useBootEnd() {
     const dispatch = useDispatch();
-    dispatch(actions.bootEnd());
+    return ()=>dispatch(actions.bootEnd());
 }
 
-export function bootFailed() {
+export function useBootFailed() {
     const dispatch = useDispatch();
-    dispatch(actions.bootFailed());
+    return ()=>dispatch(actions.bootFailed());
 }
 
-export function setMenus(menus) {
+export function useSetMenus() {
     const dispatch = useDispatch();
-    dispatch(actions.setMenus(menus));
+    return (menus)=>dispatch(actions.setMenus(menus));
 }

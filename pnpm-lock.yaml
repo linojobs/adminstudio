@@ -86,6 +86,7 @@ importers:
       '@reduxjs/toolkit': ^1.9.3
       '@types/react': ^18.0.32
       '@types/react-dom': ^18.0.11
+      '@types/webpack-assets-manifest': ^5.1.0
       '@typescript-eslint/eslint-plugin': ^5.57.0
       '@typescript-eslint/parser': ^5.57.0
       classnames: ^2.3.2
@@ -123,6 +124,7 @@ importers:
       '@reduxjs/toolkit': 1.9.5_k4ae6lp43ej6mezo3ztvx6pykq
       '@types/react': 18.0.38
       '@types/react-dom': 18.0.11
+      '@types/webpack-assets-manifest': 5.1.0_webpack-cli@5.0.2
       '@typescript-eslint/eslint-plugin': 5.59.0_chh3ljgpke5ydgcjpmkmu4hz5q
       '@typescript-eslint/parser': 5.59.0_iacogk7kkaymxepzhgcbytyi7q
       copy-webpack-plugin: 11.0.0_webpack@5.80.0
@@ -152,6 +154,7 @@ importers:
       '@types/node': ^18.16.0
       '@types/react': ^18.0.32
       '@types/react-dom': ^18.0.11
+      '@types/webpack-assets-manifest': ^5.1.0
       '@typescript-eslint/eslint-plugin': ^5.57.0
       '@typescript-eslint/parser': ^5.57.0
       classnames: ^2.3.2
@@ -190,6 +193,7 @@ importers:
       '@types/node': 18.16.0
       '@types/react': 18.0.38
       '@types/react-dom': 18.0.11
+      '@types/webpack-assets-manifest': 5.1.0_webpack-cli@5.0.2
       '@typescript-eslint/eslint-plugin': 5.59.0_chh3ljgpke5ydgcjpmkmu4hz5q
       '@typescript-eslint/parser': 5.59.0_iacogk7kkaymxepzhgcbytyi7q
       copy-webpack-plugin: 11.0.0_webpack@5.80.0
@@ -234,6 +238,7 @@ importers:
       '@types/node': ^18.16.0
       '@types/react': ^18.0.32
       '@types/react-dom': ^18.0.11
+      '@types/webpack-assets-manifest': ^5.1.0
       '@typescript-eslint/eslint-plugin': ^5.57.0
       '@typescript-eslint/parser': ^5.57.0
       classnames: ^2.3.2
@@ -272,6 +277,7 @@ importers:
       '@types/node': 18.16.0
       '@types/react': 18.0.38
       '@types/react-dom': 18.0.11
+      '@types/webpack-assets-manifest': 5.1.0_webpack-cli@5.0.2
       '@typescript-eslint/eslint-plugin': 5.59.0_chh3ljgpke5ydgcjpmkmu4hz5q
       '@typescript-eslint/parser': 5.59.0_iacogk7kkaymxepzhgcbytyi7q
       copy-webpack-plugin: 11.0.0_webpack@5.80.0
@@ -300,6 +306,7 @@ importers:
       '@reduxjs/toolkit': ^1.9.3
       '@types/react': ^18.0.32
       '@types/react-dom': ^18.0.11
+      '@types/webpack-assets-manifest': ^5.1.0
       '@typescript-eslint/eslint-plugin': ^5.57.0
       '@typescript-eslint/parser': ^5.57.0
       classnames: ^2.3.2
@@ -337,6 +344,7 @@ importers:
       '@reduxjs/toolkit': 1.9.5_k4ae6lp43ej6mezo3ztvx6pykq
       '@types/react': 18.0.38
       '@types/react-dom': 18.0.11
+      '@types/webpack-assets-manifest': 5.1.0_webpack-cli@5.0.2
       '@typescript-eslint/eslint-plugin': 5.59.0_chh3ljgpke5ydgcjpmkmu4hz5q
       '@typescript-eslint/parser': 5.59.0_iacogk7kkaymxepzhgcbytyi7q
       copy-webpack-plugin: 11.0.0_webpack@5.80.0
@@ -879,6 +887,19 @@ packages:
 
   /@types/use-sync-external-store/0.0.3:
     resolution: {integrity: sha512-EwmlvuaxPNej9+T4v5AuBPJa2x2UOJVdjCtDHgcDqitUeOtjnJKJ+apYjVcAoBEMjKW1VVFGZLUb5+qqa09XFA==}
+
+  /@types/webpack-assets-manifest/5.1.0_webpack-cli@5.0.2:
+    resolution: {integrity: sha512-XfqZOVP6n220SXYAVyFdPX+6DCGdejVQ/mj2l+eI5D0QL6+GaRTo4rBcmePDDQmVefpKq5Q7Gd4jiYQEjUwntA==}
+    dependencies:
+      '@types/node': 18.16.0
+      tapable: 2.2.1
+      webpack: 5.80.0_webpack-cli@5.0.2
+    transitivePeerDependencies:
+      - '@swc/core'
+      - esbuild
+      - uglify-js
+      - webpack-cli
+    dev: true
 
   /@types/ws/8.5.4:
     resolution: {integrity: sha512-zdQDHKUgcX/zBc4GrwsE/7dVdAD8JR4EuiAXiiUhhfyIJXXb2+PrGshFyeXWQPMmmZ2XxgaqclgpIC7eTXc1mg==}
@@ -2650,7 +2671,7 @@ packages:
     dev: true
 
   /image-size/0.5.5:
-    resolution: {integrity: sha512-6TDAlDPZxUFCv+fuOkIoXT/V/f3Qbq8e37p+YOiYrUv3v9cc3/6x78VdfPgFVaB9dZYeLUfKgHRebpkm/oP2VQ==}
+    resolution: {integrity: sha1-Cd/Uq50g4p6xw+gLiZA3jfnjy5w=}
     engines: {node: '>=0.10.0'}
     hasBin: true
     requiresBuild: true

@@ -1,12 +1,12 @@
 import React from "react";
-import { Provider, store, OSContext } from "@adminstudio/store";
+import { Provider, store } from "@adminstudio/store";
 import Biz from "./biz";
 
 import "./style/index.less";
 
 const App: React.FC = () => {
     return (
-        <Provider context={OSContext} store={store}>
+        <Provider store={store}>
             <Biz />
         </Provider>
     );
