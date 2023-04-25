@@ -22,8 +22,8 @@ export default class OrmTable<Fields extends object> {
     }
 
 
-    newRecord() {
-        return new OrmRecord<Fields>(this);
+    record(initialValues:Partial<Fields>) {
+        return new OrmRecord<Fields>(this,initialValues);
     }
 
     finder() {

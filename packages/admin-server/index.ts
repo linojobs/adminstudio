@@ -1,23 +1,16 @@
 import Express, { Request, Response } from "express";
-import Account from "./model/account";
+import * as user from "./biz/user";
+import guard from "./biz/guard";
 
 // don't change port
 const port = 3000;
 const app = Express();
 
-app.get("/api", async function (req: Request, res: Response) {
-    try {
-        const account = Account();
-        const finder = account.finder();
-        const record = account.newRecord()
-            .set("username", "admin")
-            .set("passwd", "admin");
-        await record.save();
-        const results = await finder.fetchAll();
-        res.json(results);
-    } catch (error: any) {
-        res.send(error.message);
-    }
+app.use(guard());
+app.use(user.useradd());
+
+app.post("/api", async function (req: Request, res: Response) {
+    res.json();
 });
 
 app.listen(port, function () {

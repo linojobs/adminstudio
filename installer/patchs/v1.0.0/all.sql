@@ -34,7 +34,13 @@ CREATE TABLE `t_account` (
   `id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(45) NOT NULL,
   `passwd` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
+  `create_at` datetime NOT NULL,
+  `update_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `create_by` tinyint(5) NOT NULL DEFAULT 0,
+  `update_by` tinyint(5) NOT NULL DEFAULT 0,
+  `locked` tinyint(5) NOT NULL DEFAULT 0
+  PRIMARY KEY (`id`),
+  UNIQUE `username`
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

@@ -1,9 +1,9 @@
 import DB from "../db";
 import OrmTable from "./table";
 
-type RecordValue = string | number | undefined;
+export type RecordValue = string | number | undefined;
 
-export default class OrmRecord<Fields extends object = {}> {
+export default class OrmRecord<Fields extends object> {
 
     private ormTable: OrmTable<Fields>;
 
@@ -11,9 +11,9 @@ export default class OrmRecord<Fields extends object = {}> {
 
     private dirty_values: Partial<Record<keyof Fields, RecordValue>>;
 
-    constructor(ormTable: OrmTable<Fields>) {
+    constructor(ormTable: OrmTable<Fields>,initialValues:Partial<Fields>) {
         this.ormTable = ormTable;
-        this.values = {};
+        this.values = initialValues;
         this.dirty_values = {};
     }
 
