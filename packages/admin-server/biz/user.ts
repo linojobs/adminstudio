@@ -1,8 +1,7 @@
-import { NextFunction, Request, Response } from "express";
+import { Request, Response, Router } from "express";
 
-export function useradd(){
-    return async function(req:Request,res:Response,next:NextFunction){
+export default function(router:Router){
+    router.post("/user",async function(req:Request,res:Response){
         const {cmd} = req.params;
-        next();
-    };
+    });
 }
